@@ -31,7 +31,7 @@ memeForm.addEventListener('submit', function(e){
 
     if (emotionSelected){
         // get the gif value
-        const isGIF = document.getElementById('gifs-input').checked
+        const isGIF = gifCheckbox.checked
 
         console.log(emotionSelected, isGIF)
 
