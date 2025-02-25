@@ -8,20 +8,37 @@
     </head>
     <body>
         <header>
-            <div>
-                <img src="images/header/pumpkin.png" alt="black and white cat looking at something">
+            <div class="header-container">
+                <img class="header-img" src="images/header/pumpkin.png" alt="black and white cat looking at something">
 
                 <div>
                     <h2>Pumpkin's Purrfect...</h2>
 				    <h1>Meme Picker</h1>
                 </div>
 
-                <img src="images/header/pumpkin2.png" alt="grumpy cat">
+                <img class="header-img" src="images/header/pumpkin2.png" alt="grumpy cat">
             </div>
         </header>
         <main>
-            <div>
+            <section class="section-container">
+                <div class="emotion-selects">
+                    <label for="select">Select your current Emotion</label>
+                    <select id="select" name="select">
+                        <option value="">--Please choose an option--</option>
+                    </select>
+                </div>
 
+                <div class="gifs-check">
+                    <label for="gifs-input">Animated GIFS only</label>
+                    <input id="gifs-input" name="gifs" type="checkbox">
+                </div>
+                
+                <button class="generate-btn" id="generate-btn">Generate Image</button>
+            </section>
+
+            <div class="meme-modal" id="meme-modal">
+                <button id="meme-modal-close-btn" class="modal-close-btn">X</button>
+                <div class="meme-modal-inner"><img class="meme-modal-img" src="images/angry.gif"></div>
             </div>
         </main>
     </body>

@@ -1,5 +1,149 @@
 html, body{
     padding: 0;
     margin: 0;
-    font-family: "Oswald", sans-serif;;
+    font-family: "Oswald", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* typography */
+
+h1, h2, h3{
+    margin: 0;
+}
+
+h1, h2{
+    color: whitesmoke;
+}
+
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 16px;
+}
+
+
+/* Layout */
+body{
+    background-color: #d8dcff;
+}
+
+header{
+    background-color: #565676;
+    text-align: center;
+}
+
+
+.header-container{
+    display: flex;
+    width: 370px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-container{
+    width: 200px;
+    margin: 0 auto;
+    padding: 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emotion-selects{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emotion-selects label{
+    margin-bottom: 10px;
+}
+
+.emotion-selects select{
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #aeadf0;
+    color: whitesmoke;
+    font-weight: 400;
+    font-family: "Oswald", sans-serif;
+    border-radius: 5px; 
+}
+
+.gifs-check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.generate-btn{
+    align-self: stretch;
+    background-color: #a76571;
+    color: whitesmoke;
+    font-weight: 800;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal */
+
+.meme-modal{
+    position: fixed;
+    background-color: #aeadf0;
+    border: 2px solid #565676;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px 2px black;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.meme-modal-img{
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 5px;
+}
+
+.modal-close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 2px 6px;
+    
+}
+
+.modal-close-btn:hover{
+    background-color: #bd301d;
+    border: 2px solid #bd301d;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+
+
+/* Images */
+.header-img{
+    width: 100px;
+    height: 120px;
 }
