@@ -1,9 +1,9 @@
 import {catsData} from "./data.js"
 
 
+const memeForm = document.getElementById('meme-form')
 const emotionSelect = document.getElementById('select')
 const gifCheckbox = document.getElementById('gifs-input')
-const generateBtn = document.getElementById('generate-btn')
 const memeModal = document.getElementById('meme-modal')
 const modalCloseBtn = document.getElementById('meme-modal-close-btn')
 
@@ -12,7 +12,6 @@ renderEmotions(catsData)
 
 
 // event
-
 emotionSelect.addEventListener('change', function(){
 
     if (emotionSelect.value){
@@ -21,22 +20,25 @@ emotionSelect.addEventListener('change', function(){
     else{
         emotionSelect.style.backgroundColor='#aeadf0'
     }
-
 })
 
-generateBtn.addEventListener('click', function(){
+memeForm.addEventListener('submit', function(e){
+
+    e.preventDefault()
 
     // get the value of the emotion selected
     const emotionSelected = document.querySelector('option:checked').value
 
-    // get the gif value
-    const isGIF = document.getElementById('gifs-input').checked
+    if (emotionSelected){
+        // get the gif value
+        const isGIF = document.getElementById('gifs-input').checked
 
-    console.log(emotionSelected, isGIF)
+        console.log(emotionSelected, isGIF)
 
-    // get all the cats with this current emotions
+        // get all the cats with this current emotions
 
-    memeModal.style.display = "flex"
+        memeModal.style.display = "flex"
+    }
 })
 
 modalCloseBtn.addEventListener('click', function(){
