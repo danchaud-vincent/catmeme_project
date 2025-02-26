@@ -47,9 +47,21 @@ memeForm.addEventListener('submit', function(e){
 })
 
 modalCloseBtn.addEventListener('click', function(){
-    memeModal.style.display = "none"
+    closeModal()
 })
 
+window.addEventListener('click', function(e){
+
+    if(!e.target.id.includes('meme-modal')){
+        closeModal()
+    }
+
+})
+
+
+function closeModal(){
+    memeModal.style.display = "none"
+}
 
 
 // RENDER EMOTIONS SELECT
@@ -113,7 +125,7 @@ function renderCat(data, emotion, isGif){
     const catObject = getSingleCat(data, emotion, isGif)
 
     // render modal html
-    memeModalInner.innerHTML = `<img class="meme-modal-img" src="images/${catObject.image}", alt="${catObject.alt}">`
+    memeModalInner.innerHTML = `<img id="meme-modal-img" class="meme-modal-img" src="images/${catObject.image}", alt="${catObject.alt}">`
     memeModal.style.display = "flex"
 }
 
