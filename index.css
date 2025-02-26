@@ -111,14 +111,14 @@ form{
     left: 0;
     margin: auto;
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
 
 .meme-modal-img{
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 380px;
+    max-height: 380px;
     border-radius: 5px;
 }
 

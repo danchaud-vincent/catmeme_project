@@ -5,6 +5,7 @@ const memeForm = document.getElementById('meme-form')
 const emotionSelect = document.getElementById('select')
 const gifCheckbox = document.getElementById('gifs-input')
 const memeModal = document.getElementById('meme-modal')
+const memeModalInner = document.getElementById('meme-modal-inner')
 const modalCloseBtn = document.getElementById('meme-modal-close-btn')
 
 
@@ -30,20 +31,25 @@ memeForm.addEventListener('submit', function(e){
     const emotionSelected = document.querySelector('option:checked').value
 
     if (emotionSelected){
-        // get the gif value
-        const isGIF = gifCheckbox.checked
 
-        console.log(emotionSelected, isGIF)
+        // get the gif value
+        const isGif = gifCheckbox.checked
 
         // get all the cats with this current emotions
+        const catsArray = getCatsArray(catsData, emotionSelected, isGif)
 
-        memeModal.style.display = "flex"
+        // get one random cat
+        const catObject = getSingleCat(catsArray)
+
+        // render cat
+        renderCat(catsData, emotionSelected, isGif)
     }
 })
 
 modalCloseBtn.addEventListener('click', function(){
     memeModal.style.display = "none"
 })
+
 
 
 // RENDER EMOTIONS SELECT
@@ -76,6 +82,41 @@ function renderEmotions(data){
 }
 
 // GET IMAGES MODAL
+function getCatsArray(data, emotion, isGif){
+
+    if (isGif){
+        return data.filter(cat => cat.emotionTags.includes(emotion) && cat.isGif === isGif)
+    }
+    else{
+
+        return data.filter(cat => cat.emotionTags.includes(emotion))
+    }
+}
+
+function getSingleCat(data, emotion, isGif){
+
+    // get the cats array according the emotion selected
+    const catsArr = getCatsArray(data, emotion, isGif)
+
+    // get a random number
+    const randomNumber = Math.floor(Math.random() * catsArr.length)
+    
+    // get the cat in the array
+    const catObject = catsArr[randomNumber]
+
+    return catObject
+}
+
+function renderCat(data, emotion, isGif){
+
+    // get single cat
+    const catObject = getSingleCat(data, emotion, isGif)
+
+    // render modal html
+    memeModalInner.innerHTML = `<img class="meme-modal-img" src="images/${catObject.image}", alt="${catObject.alt}">`
+    memeModal.style.display = "flex"
+}
+
 
 
 
